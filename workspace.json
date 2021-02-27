@@ -1,23 +1,12 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "defaultProject": "playground",
   "generators": {
     "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "scss"
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
-      }
+      "application": { "style": "scss", "linter": "eslint", "babel": true },
+      "component": { "style": "scss" },
+      "library": { "style": "scss", "linter": "eslint" }
     }
   },
   "projects": {
@@ -70,13 +59,9 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "playground:build"
-          },
+          "options": { "buildTarget": "playground:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "playground:build:production"
-            }
+            "production": { "buildTarget": "playground:build:production" }
           }
         },
         "lint": {
@@ -108,15 +93,34 @@
             "devServerTarget": "playground:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "playground:serve:production"
-            }
+            "production": { "devServerTarget": "playground:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/playground-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "playground-news": {
+      "root": "libs/playground/news",
+      "sourceRoot": "libs/playground/news/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/playground/news/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/playground/news"],
+          "options": {
+            "jestConfig": "libs/playground/news/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
